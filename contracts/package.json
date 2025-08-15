@@ -1,0 +1,18 @@
+{
+  "name": "contracts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "gen:openapi": "openapi-typescript openapi/product.yaml -o gen/openapi/product.types.ts && openapi-typescript openapi/order.yaml -o gen/openapi/order.types.ts",
+    "gen:proto": "buf generate --path proto",
+    "gen": "npm run gen:openapi && npm run gen:proto",
+    "lint:proto": "buf lint",
+    "breaking:proto": "buf breaking --against '.git#branch=main'"
+  },
+  "devDependencies": {
+    "openapi-typescript": "^7.9.1",
+    "ts-proto": "^2.7.7"
+  }
+}
+
+

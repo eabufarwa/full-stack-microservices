@@ -1,0 +1,43 @@
+syntax = "proto3";
+package product.v1;
+
+service ProductService {
+  rpc GetProductById(GetProductByIdRequest) returns (GetProductByIdResponse) {}
+  
+  
+  rpc ListProducts(ListProductsRequest) returns (ListProductsResponse) {}
+}
+
+message GetProductByIdRequest {
+  string id = 1;
+}
+
+message GetProductByIdResponse {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+}
+
+
+message ListProductsRequest {
+  uint32 page = 1;        
+  uint32 page_size = 2;   
+}
+
+
+message ProductItem {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+}
+
+message ListProductsResponse {
+  repeated ProductItem items = 1;
+  uint32 page = 2;
+  uint32 page_size = 3;
+  uint32 total = 4;
+}
+
+

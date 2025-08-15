@@ -1,0 +1,9 @@
+version: v1
+name: contracts
+lint:
+  use:
+    - DEFAULT
+breaking:
+  use:
+    - FILE
+
