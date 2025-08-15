@@ -27,6 +27,7 @@ export default function RootLayout({
               <nav className="flex gap-2 mb-6">
                 <Link href="/products" className={cn(buttonVariants({ variant: "link" }))}>Products</Link>
                 <Link href="/orders" className={cn(buttonVariants({ variant: "link" }))}>Orders</Link>
+                <Link href="/health" className={cn(buttonVariants({ variant: "link" }))}>Health</Link>
               </nav>
               {children}
               </CardContent>

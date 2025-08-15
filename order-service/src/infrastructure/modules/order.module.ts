@@ -21,7 +21,7 @@ import { OrderDomainService } from '../../domain/services/order-domain.service';
         transport: Transport.GRPC,
         options: {
           package: 'product.v1',
-          protoPath: join(__dirname, '../../../../proto/product.proto'),
+          protoPath: join(__dirname, '../../../proto/product.proto'),
           url: process.env.PRODUCT_GRPC_ADDR || 'localhost:50051',
         },
       },

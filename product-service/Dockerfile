@@ -1,14 +1,19 @@
 FROM node:20-slim AS base
 WORKDIR /app
 
+
 COPY package*.json ./
 RUN apt-get update \
   && apt-get install -y --no-install-recommends python3 make g++ \
   && npm install --no-audit --no-fund \
   && rm -rf /var/lib/apt/lists/*
 
+
 COPY . .
 RUN npm run build
+
+
+
 
 FROM node:20-slim AS runtime
 ENV NODE_ENV=production

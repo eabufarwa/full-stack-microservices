@@ -1,9 +1,10 @@
 import { Injectable, Inject } from '@nestjs/common';
 import type { ClientGrpc } from '@nestjs/microservices';
+import { firstValueFrom, type Observable } from 'rxjs';
 import type { IProductService, ProductInfo } from '../../domain/services/product-service.interface';
 
 interface ProductGrpcService {
-  GetProductById(data: { id: string }): Promise<ProductInfo>;
+  GetProductById(data: { id: string }): Observable<ProductInfo>;
 }
 
 @Injectable()
@@ -17,6 +18,6 @@ export class ProductService implements IProductService {
   }
 
   async getProductById(id: string): Promise<ProductInfo> {
-    return await this.productService.GetProductById({ id });
+    return await firstValueFrom(this.productService.GetProductById({ id }));
   }
 }
